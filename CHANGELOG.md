@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.0"></a>
+# 0.2.0 (2020-09-11)
+
+
+### Bug Fixes
+
+* **factroy name:** fix index file and factory config file name prop to same ([e1d6de1](https://github.com/fbi-templates/fbi-task-commit/commit/e1d6de1))
+
+
+### Features
+
+* copy from fbi-task-commit ([3c41bb1](https://github.com/fbi-templates/fbi-task-commit/commit/3c41bb1))
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2020-09-11)
 
