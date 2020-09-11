@@ -1,6 +1,6 @@
 {
   "name": "factory-commands",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "git commit and npm publish flow, formatting commit messages with commitizen.",
   "private": true,
   "main": "lib/index.js",

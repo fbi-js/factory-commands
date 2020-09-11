@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0"></a>
+# 0.1.0 (2020-09-11)
+
+
+### Features
+
+* copy from fbi-task-commit ([3c41bb1](https://github.com/fbi-templates/fbi-task-commit/commit/3c41bb1))
+
+
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/fbi-templates/fbi-task-commit/compare/v1.2.1...v1.2.2) (2020-05-25)
 
