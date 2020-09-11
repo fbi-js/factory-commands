@@ -4,7 +4,7 @@ const { Factory } = require("fbi");
 const { version } = require("./package.json");
 const CommandTaskCommit = require("./command/index");
 class FactoryTaskCommit extends Factory {
-  id = "fbi-task-commit";
+  id = "factory-task-commit";
   description = "factory for task commit";
   commands = [new CommandTaskCommit(this)];
   templates = [];
