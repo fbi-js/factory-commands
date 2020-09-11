@@ -1,0 +1,10 @@
+import * as execa from 'execa';
+declare function isGitRepo(dir?: string): Promise<boolean>;
+declare function showStatus(filepath?: string): execa.ExecaChildProcess<string>;
+declare function getStatus(filepath?: string, nolog?: boolean): Promise<any>;
+declare function getStaged(): Promise<string>;
+declare function getUnpushedCommits(): Promise<string>;
+declare function push(args?: string): Promise<execa.ExecaReturnValue<string>>;
+declare function isClean(): Promise<any>;
+declare function gitInit(): Promise<execa.ExecaReturnValue<string>>;
+export { isGitRepo, showStatus, getStatus, getStaged, getUnpushedCommits, push, isClean, gitInit };

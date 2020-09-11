@@ -1,10 +1,10 @@
-const path = require('path')
-const inquirer = require('inquirer')
-const standardVersion = require('standard-version')
-const { pkgExist } = require('./pkg')
-const configStandardVersion = require('../configs/standard-version.json')
+import * as path from 'path'
+import * as inquirer from 'inquirer'
+import standardVersion from 'standard-version'
+import { pkgExist } from './pkg'
+import configStandardVersion from '../configs/standard-version.json'
 
-async function bumpVersion () {
+async function bumpVersion() {
   try {
     await standardVersion(configStandardVersion)
   } catch (err) {
@@ -12,7 +12,7 @@ async function bumpVersion () {
   }
 }
 
-async function bump () {
+async function bump() {
   if (await pkgExist()) {
     const answerBump = await inquirer.prompt({
       type: 'confirm',
@@ -27,6 +27,6 @@ async function bump () {
   }
 }
 
-module.exports = {
+export default {
   bump
 }
