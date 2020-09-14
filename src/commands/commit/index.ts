@@ -51,7 +51,7 @@ export default class CommandCommit extends Command {
       console.log('Selected files committed\n')
     }
 
-    await this.bumpVersion(pkg)
+    const { prerelease } = await this.bumpVersion(pkg)
 
     // push
     const unPushed = await utils.git.status.unpushed()
@@ -76,7 +76,7 @@ export default class CommandCommit extends Command {
 
     // publish
     if (pkg && !pkg.private) {
-      await this.publish(pkg)
+      await this.publish(pkg, prerelease)
     }
 
     // status
@@ -159,7 +159,7 @@ export default class CommandCommit extends Command {
     })) as any
 
     if (!answerBump?.bumpVersion) {
-      return
+      return { prerelease: false }
     }
 
     const oldVersion = await utils.git.tag.latest()
@@ -167,7 +167,7 @@ export default class CommandCommit extends Command {
       await standardVersion({ ...configStandardVersion, firstRelease: true })
       console.log(`current version is ${oldVersion}`)
       this.log(`new version: ${this.style.bold(await utils.git.tag.latest())}`)
-      return
+      return { prerelease: false }
     }
     this.log(`current version is ${this.style.bold(oldVersion)}`)
 
@@ -246,9 +246,14 @@ export default class CommandCommit extends Command {
     await tag(newVersion, pkg ? pkg.private : false, options)
 
     this.log(`new version: ${this.style.bold(newVersion)}`)
+
+    return {
+      prerelease,
+      newVersion
+    }
   }
 
-  private async publish(pkg: any) {
+  private async publish(pkg: any, prerelease?: any) {
     if (!pkg || !pkg.name) {
       console.error('Invalid package.json')
       process.exit()
@@ -265,6 +270,16 @@ export default class CommandCommit extends Command {
     }
 
     let cmd = 'npm publish'
+    const response = (await this.prompt({
+      type: 'input',
+      name: 'npmTag',
+      message: 'Input the npm tag',
+      initial: prerelease ? 'next' : 'latest'
+    })) as any
+    if (response?.npmTag) {
+      cmd += ` --tag ${response.npmTag}`
+    }
+
     if (pkg.name.startsWith('@')) {
       const answerPub = (await this.prompt({
         type: 'confirm',
