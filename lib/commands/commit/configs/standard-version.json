@@ -1,13 +1,23 @@
 {
     "infile": "CHANGELOG.md",
-    "message": "chore(release): %s",
+    "releaseCommitMessageFormat": "chore(release): {{currentTag}}",
     "firstRelease": false,
     "sign": false,
     "noVerify": false,
     "commitAll": false,
-    "silent": false,
+    "silent": true,
     "tagPrefix": "v",
     "scripts": {},
     "skip": {},
-    "dryRun": false
+    "dryRun": false,
+    "gitTagFallback": true,
+    "header": "# Changelog\n\nAll notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.\n",
+    "packageFiles": ["package.json", "bower.json", "manifest.json"],
+    "bumpFiles": [
+        "package.json",
+        "bower.json",
+        "manifest.json",
+        "package-lock.json",
+        "npm-shrinkwrap.json"
+    ]
 }
