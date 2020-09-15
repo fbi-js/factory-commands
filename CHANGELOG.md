@@ -1,6 +1,27 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.3.1](https://github.com/fbi-js/factory-commands/compare/v0.3.0...v0.3.1) (2020-09-14)
+
+
+### Bug Fixes
+
+* support npm publish with tag ([6ea50b2](https://github.com/fbi-js/factory-commands/commit/6ea50b2cedbb95eb222714a66fd1b60b44522fd8))
+
+## [0.3.0](https://github.com/fbi-js/factory-commands/compare/v0.2.0...v0.3.0) (2020-09-14)
+
+
+### Features
+
+* compatible with fbi v4, improve version bump experience ([68e1da1](https://github.com/fbi-js/factory-commands/commit/68e1da109a3d2ded38432e9a2d7ae5a9a3da1756))
+
+### [0.2.1](https://github.com/fbi-js/factory-commands/compare/v0.2.0...v0.2.1) (2020-09-14)
+
+
+### Features
+
+* compatible with fbi v4, improve version bump experience ([26fa534](https://github.com/fbi-js/factory-commands/commit/26fa534552437445583d28d934e3f745af1e6f86))
 
 <a name="0.2.0"></a>
 # 0.2.0 (2020-09-11)
