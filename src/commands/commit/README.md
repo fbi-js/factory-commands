@@ -8,7 +8,7 @@ git commit and npm publish flow, formatting commit messages with commitizen.
 >
 > `$ npm i -g fbi@next` or `yarn global add fbi@next`
 
-<img src="../../assets/commit.gif">
+<img src="../../../assets/commit.gif">
 
 ## Requirements
 
