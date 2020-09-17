@@ -1,27 +1,37 @@
 # factory-commands
 
-Global commands for fbi
+Global commands for fbi.
 
-## use
+> This is a factory for [fbi v4](https://github.com/fbi-js/fbi). If you haven't installed fbi yet, use the following command to install.
+>
+> `$ npm i -g fbi`
 
-add fbi global
 
-```shell
-$ npm i -g fbi@next
-# OR
-$ yarn global add fbi@next
-# OR
-$ pnpm i -g fbi@next
-```
+## Requirements
 
-add factory-commands
+- `fbi v4+`
+- `node v10+`
 
-```shell
+## Usage
+
+**Install**
+
+```bash
 $ fbi add factory-commands
-
-$ fbi c
-# OR
-$ fbi commit
 ```
 
-then you can use all commands in this factory anywhere
+**Run**
+
+```bash
+$ fbi [command]
+
+$ fbi ls
+```
+
+## Commands
+
+- `commit`: git commit and npm publish flow, formatting commit messages with commitizen.
+
+## License
+
+Licensed under [MIT](https://opensource.org/licenses/MIT).
