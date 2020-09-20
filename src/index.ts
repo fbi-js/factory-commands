@@ -5,7 +5,7 @@ import CommandDemo from './commands/demo/'
 
 export default class FactoryTaskCommit extends Factory {
   id = 'factory-commands'
-  description = 'factory of commands'
+  description = 'global commands for fbi'
   commands = [new CommandCommit(this), new CommandDemo(this)]
   templates = []
   isGlobal = true
