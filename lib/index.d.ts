@@ -4,7 +4,7 @@ import CommandDemo from './commands/demo/';
 export default class FactoryTaskCommit extends Factory {
     id: string;
     description: string;
-    commands: (CommandCommit | CommandDemo)[];
+    commands: (CommandDemo | CommandCommit)[];
     templates: never[];
     isGlobal: boolean;
     execOpts: {
