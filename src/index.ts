@@ -1,12 +1,13 @@
 import { join } from 'path'
 import { Factory } from 'fbi'
-import CommandCommit from './commands/commit/'
-import CommandDemo from './commands/demo/'
+
+import CommandCommit from './commands/commit'
+import CommandLint from './commands/lint'
 
 export default class FactoryTaskCommit extends Factory {
   id = 'factory-commands'
   description = 'global commands for fbi'
-  commands = [new CommandCommit(this), new CommandDemo(this)]
+  commands = [new CommandCommit(this), new CommandLint(this)]
   templates = []
   isGlobal = true
 

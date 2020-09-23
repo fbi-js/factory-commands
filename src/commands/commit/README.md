@@ -6,7 +6,7 @@ git commit and npm publish flow, formatting commit messages with commitizen.
 > [fbi v4](https://github.com/fbi-js/fbi/tree/v4.x) yet, use the following command to
 > install.
 >
-> `$ npm i -g fbi@next` or `yarn global add fbi@next`
+> `$ npm i -g fbi` or `yarn global add fbi`
 
 <img src="../../../assets/commit.gif">
 
