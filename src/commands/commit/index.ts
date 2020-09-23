@@ -162,7 +162,7 @@ export default class CommandCommit extends Command {
       return { prerelease: false }
     }
 
-    const oldVersion = await utils.git.tag.latest()
+    const oldVersion = (pkg && pkg.version) || (await utils.git.tag.latest())
     if (!oldVersion) {
       await standardVersion({ ...configStandardVersion, firstRelease: true })
       console.log(`current version is ${oldVersion}`)
