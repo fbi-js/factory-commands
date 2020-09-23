@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.2](https://github.com/fbi-js/factory-commands/compare/v0.5.1...v0.5.2) (2020-09-23)
+
+
+### Bug Fixes
+
+* **lint:** add alias 'l' for 'lint' ([dec54ec](https://github.com/fbi-js/factory-commands/commit/dec54ec426b185ba1aaca30e76e6f3da271e61de))
+
 ### [0.5.1](https://github.com/fbi-js/factory-commands/compare/v0.5.0...v0.5.1) (2020-09-23)
 
 ## [0.5.0](https://github.com/fbi-js/factory-commands/compare/v0.4.0...v0.5.0) (2020-09-23)
