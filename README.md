@@ -30,7 +30,8 @@ $ fbi ls
 
 ## Commands
 
-- `commit`: git commit and npm publish flow, formatting commit messages with commitizen.
+- `commit`: git commit and npm publish flow, formatting commit messages with commitizen. [more](./src/commands/commit/README.md)
+- `lint`: Lint js/ts/vue/react code with [eslint-plugin-fbi](https://github.com/fbi-js/eslint-plugin-fbi). [more](./src/commands/lint/README.md)
 
 ## License
 
