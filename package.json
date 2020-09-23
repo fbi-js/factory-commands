@@ -6,7 +6,8 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "fbi b",
-    "watch": "fbi w"
+    "watch": "fbi w",
+    "clean": "rm -rf ./lib"
   },
   "repository": {
     "type": "git",
