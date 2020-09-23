@@ -7,7 +7,7 @@ import defaults from './defaults.json'
 
 export default class CommandDemo extends Command {
   id = 'lint'
-  alias = ''
+  alias = 'l'
   description = 'code lint with eslint'
   args = ''
   flags = [['--fix', 'autofix', false]]
