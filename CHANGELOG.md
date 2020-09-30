@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.3](https://github.com/fbi-js/factory-commands/compare/v0.5.2...v0.5.3) (2020-09-30)
+
+
+### Features
+
+* **commit:** custom commit logic; fix warnings in node 14 ([7c083d1](https://github.com/fbi-js/factory-commands/commit/7c083d18070b9bff1be10d9fc1e7996ee266d0aa))
+
 ### [0.5.2](https://github.com/fbi-js/factory-commands/compare/v0.5.1...v0.5.2) (2020-09-23)
 
 
