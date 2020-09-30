@@ -1,0 +1,30 @@
+{
+    "types": [
+        {
+            "emoji": "🐞",
+            "description": "A bug fix",
+            "name": "fix"
+        },
+        {
+            "emoji": "🌟",
+            "description": "A new feature",
+            "name": "feat"
+        },
+        {
+            "emoji": "🔩",
+            "description": "A chore change",
+            "name": "chore"
+        },
+        {
+            "emoji": "📚",
+            "description": "Documentation change",
+            "name": "docs"
+        },
+        {
+            "emoji": "🎨",
+            "description": "A code refactoring change",
+            "name": "refactor"
+        }
+    ],
+    "scopes": []
+}
