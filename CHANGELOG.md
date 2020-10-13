@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.4](https://github.com/fbi-js/factory-commands/compare/v0.5.3...v0.5.4) (2020-10-13)
+
+
+### Bug Fixes
+
+* 'git add' file paths error ([cb482a6](https://github.com/fbi-js/factory-commands/commit/cb482a667c99171ba224c115dfef66baed47abe6))
+
 ### [0.5.3](https://github.com/fbi-js/factory-commands/compare/v0.5.2...v0.5.3) (2020-09-30)
 
 
