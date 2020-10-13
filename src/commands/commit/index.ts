@@ -115,10 +115,7 @@ export default class CommandCommit extends Command {
     })) as any
 
     if (answer && answer.initNow) {
-      return this.exec.command('git init', {
-        cwd: process.cwd(),
-        shell: true
-      })
+      return git.init()
     } else {
       process.exit(0)
     }
@@ -142,14 +139,13 @@ export default class CommandCommit extends Command {
           pageSize: 20
         } as any)) as any
 
-        if (answer && answer.files && answer.files.length > 0) {
+        if (answer?.files?.length > 0) {
           // add files
-          const filesToAdd = answer.files.length === needAdd.length ? '.' : answer.files.join(' ')
-
-          await this.exec.command(`git add ${filesToAdd}`, {
-            cwd: options.repoPath,
-            shell: true
+          const fileNames = answer.files.map((file: string) => {
+            const [status, path] = file.split(' ')
+            return path
           })
+          await git.add(fileNames)
 
           const message = await this.promptCommit()
           await git.commit(message)

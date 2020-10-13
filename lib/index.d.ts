@@ -1,7 +1,7 @@
 import { Factory } from 'fbi';
 import CommandCommit from './commands/commit';
 import CommandLint from './commands/lint';
-export default class FactoryTaskCommit extends Factory {
+export default class FactoryCommands extends Factory {
     id: string;
     description: string;
     commands: (CommandLint | CommandCommit)[];
