@@ -136,15 +136,17 @@ export default class CommandCommit extends Command {
           name: 'files',
           message: 'select files staged for commit:',
           choices: needAdd.map((n: string) => ({ name: n })),
-          pageSize: 20
+          limit: 15
         } as any)) as any
 
         if (answer?.files?.length > 0) {
           // add files
-          const fileNames = answer.files.map((file: string) => {
-            const [status, path] = file.split(' ')
-            return path
-          })
+          const fileNames = answer.files
+            .map((file: string) => {
+              const [status, ...paths] = file.split(' ')
+              return status === 'D' ? '' : paths.pop()
+            })
+            .filter(Boolean)
           await git.add(fileNames)
 
           const message = await this.promptCommit()
