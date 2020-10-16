@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.6](https://github.com/fbi-js/factory-commands/compare/v0.5.5...v0.5.6) (2020-10-16)
+
+
+### Bug Fixes
+
+* **commit:** all git commands runs in git root dir;support 'git rm' ([9d06715](https://github.com/fbi-js/factory-commands/commit/9d0671576cecadc9865c6c796eda52ac5e73140e))
+
 ### [0.5.5](https://github.com/fbi-js/factory-commands/compare/v0.5.4...v0.5.5) (2020-10-14)
 
 
