@@ -14,6 +14,7 @@ export default class CommandCommit extends Command {
         };
         release: {};
     };
+    gitCommandOptions: {};
     constructor(factory: Factory);
     run(args: any, flags: any): Promise<void>;
     private getConfigs;

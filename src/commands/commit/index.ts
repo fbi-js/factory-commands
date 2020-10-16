@@ -30,11 +30,13 @@ export default class CommandCommit extends Command {
     },
     release: {}
   }
+  gitCommandOptions = {}
 
   constructor(public factory: Factory) {
     super()
   }
 
+  // TODO: check git version first
   async run(args: any, flags: any) {
     this.debug(`Factory: (${this.factory.id})`, 'from command', `"${this.id}"`)
 
@@ -48,6 +50,11 @@ export default class CommandCommit extends Command {
       await this.gitInit()
     }
 
+    this.gitCommandOptions = {
+      // exec all git commands in git top-root dir
+      cwd: (await git.root()) || process.cwd()
+    }
+
     const hadCommited = await this.commit(options)
     if (hadCommited) {
       console.log('Selected files committed\n')
@@ -56,7 +63,7 @@ export default class CommandCommit extends Command {
     const { prerelease } = await this.bumpVersion(pkg)
 
     // push
-    const unPushed = await git.status.unpushed()
+    const unPushed = await git.status.unpushed(this.gitCommandOptions)
     if (unPushed.length > 0) {
       console.log()
       console.log(`Unpushed commits(${unPushed.length}):`)
@@ -70,8 +77,8 @@ export default class CommandCommit extends Command {
       })) as any
 
       if (answer.pushCommits) {
-        await git.push()
-        await git.push('--tags')
+        await git.push('', this.gitCommandOptions)
+        await git.push('--tags', this.gitCommandOptions)
         console.log('All commits and tags pushed\n')
       }
     }
@@ -83,7 +90,7 @@ export default class CommandCommit extends Command {
 
     // status
     await git.status.changes()
-    const unPushed2 = await git.status.unpushed()
+    const unPushed2 = await git.status.unpushed(this.gitCommandOptions)
     if (unPushed2) {
       console.log(` (${unPushed2.length} commits unpushed)`)
     }
@@ -123,8 +130,8 @@ export default class CommandCommit extends Command {
 
   private async commit(options: any) {
     try {
-      const needAdd = await git.status.changes()
-      const unPushed = await git.status.unpushed()
+      const needAdd = await git.status.changes(this.gitCommandOptions)
+      const unPushed = await git.status.unpushed(this.gitCommandOptions)
       if (unPushed) {
         console.log(this.style.yellow`${unPushed.length} commits unpushed`)
       }
@@ -140,25 +147,33 @@ export default class CommandCommit extends Command {
         } as any)) as any
 
         if (answer?.files?.length > 0) {
-          // add files
-          const fileNames = answer.files
+          let filesToDel: any[] = []
+          const filesToAdd = answer.files
             .map((file: string) => {
               const [status, ...paths] = file.split(' ')
-              return status === 'D' ? '' : paths.pop()
+              if (status === 'D') {
+                filesToDel.push(paths.pop())
+                return null
+              }
+              return paths.pop()
             })
             .filter(Boolean)
-          await git.add(fileNames)
+
+          // add
+          await git.add(filesToAdd, this.gitCommandOptions)
+          // remove
+          await git.del(filesToDel, this.gitCommandOptions)
 
           const message = await this.promptCommit()
-          await git.commit(message)
+          await git.commit(message, this.gitCommandOptions)
           return true
         }
       }
 
-      const hasStaged = await git.status.staged()
+      const hasStaged = await git.status.staged(this.gitCommandOptions)
       if (hasStaged.length > 0) {
         const message = await this.promptCommit()
-        await git.commit(message)
+        await git.commit(message, this.gitCommandOptions)
         return true
       } else {
         console.log(this.style.cyan`nothing to commit, working tree clean`)
@@ -180,11 +195,11 @@ export default class CommandCommit extends Command {
       return { prerelease: false }
     }
 
-    const oldVersion = (pkg && pkg.version) || (await git.tag.latest())
+    const oldVersion = (pkg && pkg.version) || (await git.tag.latest(this.gitCommandOptions))
     if (!oldVersion) {
       await standardVersion({ ...configRelease, firstRelease: true })
       console.log(`current version is ${oldVersion}`)
-      this.log(`new version: ${this.style.bold(await git.tag.latest())}`)
+      this.log(`new version: ${this.style.bold(await git.tag.latest(this.gitCommandOptions))}`)
       return { prerelease: false }
     }
     this.log(`current version is ${this.style.bold(oldVersion)}`)
