@@ -31,18 +31,29 @@
     "npm": ">=3.10.0"
   },
   "dependencies": {
-    "fbi": "~4",
+    "conventional-recommended-bump": "6.0.10",
+    "eslint": "^7.11.0",
+    "eslint-plugin-fbi": "*",
+    "fbi": "~4.3.2",
     "get-stream": "^6.0.0",
     "standard-version": "^9.0.0",
-    "conventional-recommended-bump": "6.0.10",
-    "tslib": "^2.0.3",
-    "eslint-plugin-fbi": "*",
-    "eslint": "^7.11.0"
+    "tslib": "^2.0.3"
   },
   "devDependencies": {
-    "@types/node": "*",
+    "@fbi-js/factory-factory": "^1.1.0",
+    "@types/conventional-recommended-bump": "6.0.0",
     "@types/eslint": "7.2.4",
-    "@types/standard-version": "7.0.0",
-    "@types/conventional-recommended-bump": "6.0.0"
+    "@types/node": "*",
+    "@types/standard-version": "7.0.0"
+  },
+  "fbi": {
+    "factory": {
+      "id": "@fbi-js/factory-factory",
+      "version": "",
+      "template": "factory",
+      "features": {
+        "typescript": true
+      }
+    }
   }
 }
